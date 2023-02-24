@@ -28,6 +28,11 @@ public class loops {
 		for(int j=10;j>=1;j--) {
 			System.out.println(j);
 		}
+		int i=1;
+		while(i<6) {
+			System.out.println("h");
+			i++;
+		}
 
 	}
 
