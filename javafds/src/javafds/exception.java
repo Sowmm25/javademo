@@ -1,15 +1,24 @@
 package javafds;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class exception {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
-		divideByZero();
-		stringParser();
-		nullpointer();
+		//divideByZero();
+		//stringParser();
+		//nullpointer();
+		//multicatchexception();
+		try {
+			checkedexception(); //try catch must be used as it says unhandled exception
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //library filedinput stream is used to read file
 		
 	
 }
@@ -36,7 +45,31 @@ public class exception {
 			System.out.println("NUll pointer exception is:"+e.getMessage());
 		}
 	}
-
+    private static void multicatchexception() {
+    	String s="hello";
+    	//String s2=null;
+    	try {
+    		int i=Integer.parseInt(s);
+    		System.out.println("length is:"+s.length());
+    		System.out.println("Converted integer is:"+i);
+    	}catch(NullPointerException n) {
+    		System.out.println("exception is: "+n.getMessage());
+    	}catch(NumberFormatException f) {
+    		System.out.println("Exception is:"+f.getMessage());
+    	}catch(Exception e) {
+    		System.out.println("Normal exception is:"+e.getMessage());
+    	}
+    }
+    private static void checkedexception() throws FileNotFoundException {//this kind of exception which does
+    	//not even let to compile other exceptions are shown during run time
+    	//use try catch or if do not want to handle use throws
+    	//try{
+    	FileInputStream f=new FileInputStream("C:/java/javafds/src/javafds/new.txt");
+    	//}catch(Exception e) {
+    	//	System.out.println(e.getMessage()); 
+    	//}
+    	
+    }
 	private static void divideByZero() {
 		int a,b,d;
 		System.out.println("enter numbers...");
